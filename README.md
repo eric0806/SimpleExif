@@ -32,4 +32,5 @@
         return res.ToString().Trim();
     }
 
-    
+## ¤U¸ü
+https://github.com/eric0806/SimpleExif/releases
