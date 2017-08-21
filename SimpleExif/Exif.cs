@@ -74,6 +74,10 @@ namespace SimpleExif {
         /// <param name="filePath">要讀入Exif的檔案完整路徑</param>
         /// <param name="fetchThumb">是否要取得exif內之縮圖</param>
         public Exif(string filePath, bool fetchThumb = true) {
+            //檢查檔案是否存在
+            if (string.IsNullOrWhiteSpace(filePath) || !File.Exists(filePath)) {
+                throw new Exception("檔案不存在");
+            }
             ExifExists = true;
             //IFDList = new List<IFD>();
             FilePath = filePath;
