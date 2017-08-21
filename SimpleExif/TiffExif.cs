@@ -98,12 +98,18 @@ namespace SimpleExif {
             }
         }
 
-        public void Run() {
+        /// <summary>
+        /// 解析TiffExif
+        /// </summary>
+        /// <param name="fetchThumb"></param>
+        public void Parse(bool fetchThumb = false) {
             try {
                 FindIFD();
                 ParseIFD();
                 AddExifList();
-                GetThumb();
+                if (fetchThumb) {
+                    GetThumb();
+                }
             }
             catch (Exception ex) {
 #if DEBUG

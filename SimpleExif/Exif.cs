@@ -72,16 +72,17 @@ namespace SimpleExif {
         /// 建構子
         /// </summary>
         /// <param name="filePath">要讀入Exif的檔案完整路徑</param>
-        public Exif(string filePath) {
+        /// <param name="fetchThumb">是否要取得exif內之縮圖</param>
+        public Exif(string filePath, bool fetchThumb = true) {
             ExifExists = true;
             //IFDList = new List<IFD>();
             FilePath = filePath;
             sw = new Stopwatch();
 
-            Parse();
+            Parse(fetchThumb);
         }
 
-        private void Parse() {
+        private void Parse(bool fetchThumb) {
             sw.Start();
             using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read)) {
 
@@ -100,7 +101,7 @@ namespace SimpleExif {
                     return;
                 }
 
-                TiffExif.Run();
+                TiffExif.Parse(fetchThumb);
 
                 ExifExists = TiffExif.Success;
             }
