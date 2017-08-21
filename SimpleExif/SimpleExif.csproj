@@ -1,16 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>af319a3f-f86e-4e83-a034-707ae115f521</ProjectGuid>
+    <ProjectGuid>{AF319A3F-F86E-4E83-A034-707AE115F521}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SimpleExif</RootNamespace>
     <AssemblyName>SimpleExif</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,24 +31,47 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"/>
-    
-    <Reference Include="System.Core"/>
-    <Reference Include="System.Xml.Linq"/>
-    <Reference Include="System.Data.DataSetExtensions"/>
-    
-    
-    <Reference Include="Microsoft.CSharp"/>
-    
-    <Reference Include="System.Data"/>
-    
-    <Reference Include="System.Net.Http"/>
-    
-    <Reference Include="System.Xml"/>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Consts.cs" />
+    <Compile Include="Exif.cs" />
+    <Compile Include="Functions\DrawingGetThumb.cs" />
+    <Compile Include="Functions\TiffThumbMaker.cs" />
+    <Compile Include="App1.cs" />
+    <Compile Include="Functions\Tools.Bin.cs" />
+    <Compile Include="Functions\Tools.Calc.cs" />
+    <Compile Include="Functions\Tools.Misc.cs" />
+    <Compile Include="Functions\Tools.TagName.cs" />
+    <Compile Include="MakerNotes\Canon\MakerNoteCanon.AFInfo.MyColors.cs" />
+    <Compile Include="MakerNotes\Canon\MakerNoteCanon.CameraSettings1.cs" />
+    <Compile Include="MakerNotes\Canon\MakerNoteCanon.cs" />
+    <Compile Include="MakerNotes\Canon\MakerNoteCanon.Define.cs" />
+    <Compile Include="MakerNotes\Canon\MakerNoteCanon.FaceDetect.cs" />
+    <Compile Include="MakerNotes\Canon\MakerNoteCanon.FileInfo.AspectInfo.cs" />
+    <Compile Include="MakerNotes\Canon\MakerNoteCanon.FocalLength.cs" />
+    <Compile Include="MakerNotes\Canon\MakerNoteCanon.Functions.cs" />
+    <Compile Include="MakerNotes\Canon\MakerNoteCanon.LightingOpt.ColorInfo.cs" />
+    <Compile Include="MakerNotes\Canon\MakerNoteCanon.ModifiedInfo.SensorInfo.cs" />
+    <Compile Include="MakerNotes\Canon\MakerNoteCanon.ProcessingInfo.cs" />
+    <Compile Include="MakerNotes\Canon\MakerNoteCanon.ShotInfo.cs" />
+    <Compile Include="MakerNotes\Canon\MakerNoteCanon.TagName.cs" />
+    <Compile Include="MakerNotes\MakerNote.cs" />
+    <Compile Include="Models\ExifModels.cs" />
+    <Compile Include="TiffExif.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Compile Include="Functions\Tools.String.cs" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
- </Project>
+</Project>
