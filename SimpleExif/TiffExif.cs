@@ -290,8 +290,11 @@ namespace SimpleExif {
         private void ParseBasicIFDValue() {
             foreach (var ifd in IFDList) {
                 foreach (var entry in ifd.IFDEntries) {
-                    entry.RealVal = Tools.Bin.ParseEntryRealVal(entry, fs, IsLittleEndian, HeaderPosition);
-                    entry.ViewValue = Tools.Bin.GetEntryViewValue(entry);
+                    try {
+                        entry.RealVal = Tools.Bin.ParseEntryRealVal(entry, fs, IsLittleEndian, HeaderPosition);
+                        entry.ViewValue = Tools.Bin.GetEntryViewValue(entry);
+                    }
+                    catch { }
                 }
             }
         }
